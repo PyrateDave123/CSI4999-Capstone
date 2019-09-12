@@ -12,4 +12,10 @@ The FURPS requirements for our software is as follows:
 10. The system shall allow users to remove their uploaded files
 11. The system shall integrate into internet services
 12. The system shall connect events with a geographical location
-13. The 
+13. The system shall allow users to view events
+14. The system shall allow users to create an event
+15. The system shall allow users to delete their account
+16. The system shall allow users to change account information
+17. The system shall allow admins to delete user accounts
+18. The system shall allow admins to delete an event
+
