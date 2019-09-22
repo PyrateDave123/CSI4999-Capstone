@@ -1,0 +1,24 @@
+"use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(require("./cordova-browser"));
+__export(require("./cordova-secure-storage"));
+__export(require("./cordova-requestor"));
+var CordovaDocument = /** @class */ (function () {
+    function CordovaDocument() {
+    }
+    CordovaDocument.ready = function (f) {
+        return new Promise(function (resolve) {
+            document.addEventListener('deviceready', function () {
+                if (f != undefined) {
+                    f();
+                }
+                resolve();
+            });
+        });
+    };
+    return CordovaDocument;
+}());
+exports.CordovaDocument = CordovaDocument;

@@ -1,0 +1,6 @@
+export * from './cordova-browser';
+export * from './cordova-secure-storage';
+export * from './cordova-requestor';
+export declare class CordovaDocument {
+    static ready(f?: Function): Promise<void>;
+}
