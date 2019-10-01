@@ -1,11 +1,5 @@
 {
-  "name": "Capstone",
-<<<<<<< HEAD
+  "name": "New Ionic App",
   "integrations": {},
-=======
-  "integrations": {
-    "cordova": {}
-  },
->>>>>>> David
   "type": "angular"
 }
