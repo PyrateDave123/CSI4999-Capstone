@@ -1,20 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab One
+  <ion-toolbar color="primary">
+    <ion-title color="light" class="login-title">
+      MemComb
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark" padding>
   <ion-card class="welcome-card">
-    <ion-img src="/assets/shapes.svg"></ion-img>
-    <ion-card-header>
-      <ion-card-subtitle>Get Started</ion-card-subtitle>
-      <ion-card-title>Welcome to Ionic</ion-card-title>
+    <ion-card-header class="login-header">
+      <ion-text color="light">
+        Login to your MemComb account below 
+      </ion-text>
+      <ion-card-title color="light">
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      
       <ion-button margin-top (click)="signIn()" *ngIf="!authenticated">Login</ion-button>
     </ion-card-content>
   </ion-card>
@@ -43,23 +45,20 @@
   </ion-card>
   <ion-list lines="none">
     <ion-list-header>
-      <ion-label>Resources</ion-label>
+      <ion-label class="login-header">
+        Your Memories... at your Fingertips
+        
+      </ion-label>
     </ion-list-header>
-    <ion-item href="https://ionicframework.com/docs/">
-      <ion-icon slot="start" color="medium" name="book"></ion-icon>
-      <ion-label>Ionic Documentation</ion-label>
+    <ion-item>
+      <img src="assets/img/party-pic.jpg" width="375.75" height="233" margin-bottom="4px" margin-top="4px"/>
     </ion-item>
-    <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-      <ion-icon slot="start" color="medium" name="build"></ion-icon>
-      <ion-label>Scaffold Out Your App</ion-label>
+    <ion-item>
+      <img src="assets/img/swing.jpg" width="375.75" height="233" margin-bottom="4px"/>
     </ion-item>
-    <ion-item href="https://ionicframework.com/docs/layout/structure">
-      <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-      <ion-label>Change Your App Layout</ion-label>
+    <ion-item>
+      <img src="assets/img/beach.jpg" width="375.75" height="233" margin-bottom="4px"/>
     </ion-item>
-    <ion-item href="https://ionicframework.com/docs/theming/basics">
-      <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-      <ion-label>Theme Your App</ion-label>
-    </ion-item>
+    
   </ion-list>
 </ion-content>
