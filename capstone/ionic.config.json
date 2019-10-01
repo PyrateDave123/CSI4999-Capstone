@@ -1,5 +1,11 @@
 {
   "name": "Capstone",
+<<<<<<< HEAD
   "integrations": {},
+=======
+  "integrations": {
+    "cordova": {}
+  },
+>>>>>>> David
   "type": "angular"
 }
