@@ -20,20 +20,14 @@
         "@angular/platform-browser": "~8.1.2",
         "@angular/platform-browser-dynamic": "~8.1.2",
         "@angular/router": "~8.1.2",
-<<<<<<< HEAD
-        "@ionic-native/core": "^5.0.0",
-=======
         "@ionic-native/camera": "^5.14.0",
         "@ionic-native/core": "^5.0.0",
         "@ionic-native/http": "^5.14.0",
->>>>>>> David
         "@ionic-native/splash-screen": "^5.0.0",
         "@ionic-native/status-bar": "^5.0.0",
         "@ionic/angular": "^4.7.1",
         "@ionic/storage": "^2.2.0",
         "@oktadev/schematics": "^0.8.3",
-<<<<<<< HEAD
-=======
         "cordova-android": "8.1.0",
         "cordova-plugin-advanced-http": "^2.2.0",
         "cordova-plugin-camera": "4.1.0",
@@ -48,7 +42,6 @@
         "cordova-plugin-splashscreen": "^5.0.2",
         "cordova-plugin-statusbar": "^2.4.2",
         "cordova-plugin-whitelist": "^1.3.3",
->>>>>>> David
         "core-js": "^2.5.4",
         "ionic-appauth": "0.3.5",
         "rxjs": "~6.5.1",
@@ -89,14 +82,10 @@
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-secure-storage": {},
             "cordova-plugin-customurlscheme": {
-<<<<<<< HEAD
-                "URL_SCHEME": "com.okta.dev-133832"
-=======
                 "URL_SCHEME": "com.okta.dev-133832",
                 "ANDROID_SCHEME": " ",
                 "ANDROID_HOST": " ",
                 "ANDROID_PATHPREFIX": "/"
->>>>>>> David
             },
             "cordova-plugin-whitelist": {},
             "cordova-plugin-statusbar": {},
@@ -105,16 +94,6 @@
             "cordova-plugin-ionic-webview": {
                 "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
             },
-<<<<<<< HEAD
-            "cordova-plugin-ionic-keyboard": {}
-        },
-        "platforms": [
-            "android",
-            "ios"
-        ]
-    }
-}
-=======
             "cordova-plugin-ionic-keyboard": {},
             "cordova-plugin-camera": {
                 "ANDROID_SUPPORT_V4_VERSION": "27.+"
@@ -125,4 +104,3 @@
         ]
     }
 }
->>>>>>> David

@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
->>>>>>> David
 
 @Component({
   selector: 'app-tab3',
@@ -10,11 +7,6 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-<<<<<<< HEAD
-
-  constructor() {}
-
-=======
   currentImage: any;
 
   constructor(private camera: Camera) {}
@@ -34,5 +26,4 @@ export class Tab3Page {
       console.log("Camera issue:" + err);
     });
   }
->>>>>>> David
 }
