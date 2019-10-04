@@ -1,0 +1,7 @@
+{
+  "name": "Capstone",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
