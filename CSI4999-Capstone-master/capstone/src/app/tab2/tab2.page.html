@@ -1,97 +1,113 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title color="light" class="login-title">
-      MemComb Events
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content color="dark" padding>
-  <ion-card class="welcome-card">
-    <ion-card-header class="login-header">
-      <ion-text color="light">
-        Not already signed in? Login to view your events:
-      </ion-text>
-      <ion-card-title color="light">
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      
-      <ion-button margin-top (click)="signIn()" *ngIf="!authenticated">Login</ion-button>
-    </ion-card-content>
-  </ion-card>
-  <ion-card *ngIf="authenticated">
-    <ion-card-header>
-      <ion-button (click)="getUserInfo()">Get User Details</ion-button>
-      <ion-button (click)="signOut()">Sign Out</ion-button>
-    </ion-card-header>
 
-    <ion-card *ngIf="userInfo">
-      <ion-card-header>
-        User Info
-      </ion-card-header>
-      <ion-card-content>
-        {{userInfo | json}}
-      </ion-card-content>
-    </ion-card>
-    <ion-card *ngIf="action">
-      <ion-card-header>
-        Action Data
-      </ion-card-header>
-      <ion-card-content>
-        {{action | json}}
-      </ion-card-content>
-    </ion-card>
-  </ion-card>
-  <ion-list lines="none">
-    <ion-list-header>
-      <ion-label class="login-header">
-        View your events below:
-        
-        
-        
-      </ion-label>
-    </ion-list-header>
-    
-    <ion-item>
-        <style>
-            table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
-            }
-            
-            td, th {
-              border: 1px solid #dddddd;
-              text-align: left;
-              padding: 8px;
-            }
-            
-            tr:nth-child(even) {
-              background-color: #dddddd;
-            }
-            </style>
-        <table>
-            <tr>
-              <th>Event Name</th>
-              <th>Event Description</th>
-              <th>Event Date/Time</th>
-              <th>Event Photos</th>
-              <th>Event Videos</th>
-            </tr>
-            <tr>
-              <td>Kittens!</td>
-              <td>Adorable kittens were photographed.</td>
-              <td>12/25/2019 5:30 PM</td>
-              <td><img src="https://i.imgur.com/fjaDQa8.jpg" width="375.75" height="233" margin-bottom="4px"/></td>
-              <td><iframe width="375.75" height="233" src="https://www.youtube.com/embed/BgIgKcqPd4k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-            </tr>
-        
-          </table>
-    </ion-item>
-    
-    
-  </ion-list>
+
 
   
-</ion-content>
+<ion-grid fixed>
+  <ion-row aria-setsize="1">
+    <ion-col aria-setsize="1">
+        <ion-header>
+            <ion-toolbar color="primary">
+              <ion-title color="light" class="login-title">
+                MemComb Events
+              </ion-title>
+            </ion-toolbar>
+          </ion-header>
+        <ion-content color="dark" padding>
+            <ion-card class="welcome-card">
+              <ion-card-header class="login-header">
+                <ion-text color="light">
+                  Not already signed in? Login to view your events:
+                </ion-text>
+                <ion-card-title color="light">
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                
+                <ion-button margin-top (click)="signIn()" *ngIf="!authenticated">Login</ion-button>
+              </ion-card-content>
+            </ion-card>
+            <ion-card *ngIf="authenticated">
+              <ion-card-header>
+                <ion-button (click)="getUserInfo()">Get User Details</ion-button>
+                <ion-button (click)="signOut()">Sign Out</ion-button>
+              </ion-card-header>
+          
+              <ion-card *ngIf="userInfo">
+                <ion-card-header>
+                  User Info
+                </ion-card-header>
+                <ion-card-content>
+                  {{userInfo | json}}
+                </ion-card-content>
+              </ion-card>
+              <ion-card *ngIf="action">
+                <ion-card-header>
+                  Action Data
+                </ion-card-header>
+                <ion-card-content>
+                  {{action | json}}
+                </ion-card-content>
+              </ion-card>
+            </ion-card>
+            <ion-list lines="none">
+              
+              
+                
+          </ion-content>
+      <div>
+        
+          <ion-list-header>
+              <ion-label class="login-header">
+                View your events below:
+                
+                
+            
+              </ion-label>
+            </ion-list-header>
+          </ion-list> 
+        
+         
+            <ion-item>
+                <style>
+                    table {
+                      font-family: arial, sans-serif;
+                      border-collapse: collapse;
+                      width: 100%;
+                    }
+                    
+                    td, th {
+                      border: 1px solid #dddddd;
+                      text-align: left;
+                      padding: 8px;
+                    }
+                    
+                    tr:nth-child(even) {
+                      background-color: #dddddd;
+                    }
+                    </style>
+                <table>
+                    <tr>
+                      <th>Event Name</th>
+                      <th>Event Description</th>
+                      <th>Event Date/Time</th>
+                      <th>Event Photos</th>
+                      <th>Event Videos</th>
+                    </tr>
+                    <tr>
+                      <td>Kittens!</td>
+                      <td>Adorable kittens were photographed.</td>
+                      <td>12/25/2019 5:30 PM</td>
+                      <td><img src="https://i.imgur.com/fjaDQa8.jpg" width="375.75" height="233" margin-bottom="4px"/></td>
+                      <td><iframe width="375.75" height="233" src="https://www.youtube.com/embed/BgIgKcqPd4k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                    </tr>
+                
+                  </table>
+            </ion-item>
+        
+            
+         
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

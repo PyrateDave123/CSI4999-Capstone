@@ -1,1 +1,31 @@
+.welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  
+  .login-header {
+    font-size: 1.6em;
+  }
+  
+  .login-title {
+    font-size: 2em;
+  }
+  ion-col {
+
+    --ion-grid-columns:               1; 
+
+  }
+  ion-grid {
+
+   
+
+    --ion-grid-width-xs:              100%;
+    --ion-grid-width-sm:              100%;
+    --ion-grid-width-md:              100%;
+    --ion-grid-width-lg:              100%;
+    --ion-grid-width-xl:              100%;
+    
+     
+      }
+
 
