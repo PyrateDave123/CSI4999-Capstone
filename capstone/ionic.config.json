@@ -1,5 +1,7 @@
 {
   "name": "Capstone",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
