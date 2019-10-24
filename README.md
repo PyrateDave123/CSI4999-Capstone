@@ -1,12 +1,8 @@
 # CSI4999-Capstone
 Senior Capstone Project CSI 4999
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 This is our project
-=======
->>>>>>> David
-=======
 
 https://nodejs.org/en/download/
 
@@ -18,4 +14,3 @@ https://developer.okta.com/blog/2019/06/20/ionic-4-tutorial-user-authentication-
 
 CORS blocking the login button on our ionic webpage:
 https://developer.okta.com/docs/guides/enable-cors/overview/
->>>>>>> Jacob
