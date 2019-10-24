@@ -11,9 +11,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { IonicStorageModule } from '@ionic/storage';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { firebaseConfig } from './credentials';
+
 import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
@@ -25,9 +23,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     AppRoutingModule, 
     HttpClientModule, 
     AuthModule, 
-    IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
