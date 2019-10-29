@@ -17,7 +17,18 @@ import { Camera } from '@ionic-native/camera/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
+<<<<<<< HEAD
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AuthModule, IonicStorageModule.forRoot()],
+=======
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(),
+    AppRoutingModule, 
+    HttpClientModule, 
+    AuthModule, 
+    IonicStorageModule.forRoot()
+  ],
+>>>>>>> e29a3f5cef6f2058eb8d6edb593c8300ca7d3800
   providers: [
     StatusBar,
     SplashScreen,
