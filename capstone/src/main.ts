@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-var firebase = require("firebase");
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAU1WQY87ptzsZeD7IBwoVexggxOXcqEKg",
