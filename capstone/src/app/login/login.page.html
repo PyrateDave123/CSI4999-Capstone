@@ -1,10 +1,11 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-toolbar color="primary">
+		<ion-title color="light">Welcome to MemComb!</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content color='dark' padding>
+
 	<ion-list>
 
 		<ion-item>
@@ -19,6 +20,17 @@
 	  
 	  </ion-list>
 
-	  <ion-button fill="solid" expand="block" color="dark" (click)="login()">Login</ion-button>
+	  <ion-button fill="solid" expand="block" color="primary" (click)="login()">Login</ion-button>
 	  <ion-button fill="solid" expand="block" color="dark" (click)="register()">New to MemComb? Signup!</ion-button>
-</ion-content>
+
+	  <ion-item color='dark'>
+			<img src="assets/img/party-pic.jpg" width="375.75" height="233" class="center"/>
+		  </ion-item>
+		  <ion-item color='dark'>
+			<img src="assets/img/swing.jpg" width="375.75" height="233" class="center"/>
+		  </ion-item>
+		  <ion-item color='dark'>
+			<img src="assets/img/beach.jpg" width="375.75" height="233" class="center"/>
+		  </ion-item>
+
+	</ion-content>
