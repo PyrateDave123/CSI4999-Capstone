@@ -1,29 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthActions, IAuthAction } from 'ionic-appauth';
-import { AuthService } from '../auth/auth.service';
-import { NavController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth'
+import { auth } from 'firebase/app'
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  action: IAuthAction;
 
-  constructor(private authService: AuthService, private navCtrl: NavController) {
-  }
+	username: string = ""
+	password: string = ""
 
-  ngOnInit() {
-    this.authService.authObservable.subscribe((action) => {
-      this.action = action;
-      if (action.action === AuthActions.SignInSuccess) {
-        this.navCtrl.navigateRoot('tabs');
-      }
-    });
-  }
+	constructor(public afAuth: AngularFireAuth, public user: UserService, public router: Router) { }
 
-  signIn() {
-    this.authService.signIn();
-  }
+	ngOnInit() {
+	}
+
+	async login() {
+		const { username, password } = this
+		try {
+			// kind of a hack. 
+			const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
+			
+			if(res.user) {
+				this.user.setUser({
+					username,
+					uid: res.user.uid
+				})
+				this.router.navigate(['/tabs'])
+			}
+		
+		} catch(err) {
+			console.dir(err)
+			if(err.code === "auth/user-not-found") {
+				console.log("User not found")
+			}
+		}
+	}
+
 }
