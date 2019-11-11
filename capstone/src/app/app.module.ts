@@ -6,23 +6,36 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './auth/auth.module';
-import { IonicStorageModule } from '@ionic/storage';
-
-import { Camera } from '@ionic-native/camera/ngx';
+import { AppRoutingModule } from './app-routing.module';
+import firebaseConfig from './firebase'
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { HttpModule } from '@angular/http'
+import { UserService } from './user.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AuthService } from './auth.service';
+import { ShareModule } from './share.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AuthModule, IonicStorageModule.forRoot()],
+  imports: [
+	  BrowserModule, 
+	  IonicModule.forRoot(), 
+	  AppRoutingModule,
+	  AngularFireModule.initializeApp(firebaseConfig),
+	  AngularFireAuthModule,
+	  AngularFirestoreModule,
+	  HttpModule,
+	  ShareModule
+	],
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+	{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+	UserService,
+	AuthService
   ],
   bootstrap: [AppComponent]
 })
