@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { AngularFireAuth} from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
 	selector: 'app-page',
@@ -31,7 +31,7 @@ export class ProfilePage implements OnInit {
 		this.fAuth.auth.signOut();
 		this.router.navigate(['/login'])
 	  }
-	
+
 	ngOnDestroy() {
 		this.sub.unsubscribe()
 	}
