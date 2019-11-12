@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
 	selector: 'app-page',
@@ -17,7 +18,7 @@ export class ProfilePage implements OnInit {
 	username: string
 	profilePic: string
 
-	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {
+	constructor(private afs: AngularFirestore, private user: UserService, private router: Router, public fAuth: AngularFireAuth) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.posts = event.posts
@@ -26,6 +27,11 @@ export class ProfilePage implements OnInit {
 		})
 	}
 
+	logout() {
+		this.fAuth.auth.signOut();
+		this.router.navigate(['/login'])
+	  }
+	
 	ngOnDestroy() {
 		this.sub.unsubscribe()
 	}
