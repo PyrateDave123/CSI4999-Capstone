@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-toolbar color="primary">
-			<ion-title color="light">Upload Image</ion-title>
+			<ion-title color="light">Create an Event</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -22,7 +22,7 @@
 					<ion-col size="12">
 						<ion-img src="https://ucarecdn.com/{{ imageURL }}/-/preview/{{ activeEffect }}"></ion-img>
 						<ion-card-content>
-							<ion-textarea placeholder="Enter some description" [(ngModel)]="desc"></ion-textarea>
+							<ion-textarea placeholder="Enter the name and date of occurance of your event" [(ngModel)]="desc"></ion-textarea>
 							<ion-button shape="round" color="primary" (click)="createPost()">POST</ion-button>
 						</ion-card-content>
 					</ion-col>
@@ -43,12 +43,6 @@
 					</ion-col>
 					<ion-col [class.active]="activeEffect==effects.effect5" (click)="setSelected('effect5')">
 						<ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/{{ effects.effect5 }}"></ion-img>
-					</ion-col>
-				</ion-row>
-
-				<ion-row *ngIf="noFace">
-					<ion-col size="12">
-						<p class="no-face">Images with faces perform 150 times better!</p>
 					</ion-col>
 				</ion-row>
 			</ion-grid>

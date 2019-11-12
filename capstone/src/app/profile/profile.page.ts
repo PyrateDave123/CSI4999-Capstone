@@ -29,8 +29,7 @@ export class ProfilePage implements OnInit {
 
 	logout() {
 		this.fAuth.auth.signOut();
-		this.router.navigate(['/login'])
-
+		//this.router.navigate(['/login'])
 	  }
 
 	ngOnDestroy() {
