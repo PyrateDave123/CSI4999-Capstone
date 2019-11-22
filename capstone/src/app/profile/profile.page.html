@@ -24,11 +24,17 @@
 		</ion-grid>
 	</div>
 
-
 	<div id="images" *ngIf="posts">
 		<div class="image" *ngFor="let post of posts">
 			<img (click)="goTo(post)" class="main-image" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/" />
 		</div>
 	</div>
 
+	<ion-item>
+		<div id ="images">
+			<div class="image">
+				<p>Friends List</p>
+			</div>
+		</div>
+	</ion-item>
 </ion-content>
