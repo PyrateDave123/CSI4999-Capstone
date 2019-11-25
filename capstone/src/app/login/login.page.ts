@@ -21,8 +21,8 @@ export class LoginPage implements OnInit {
 
 	register(){
 		this.router.navigate(['/register'])
-
 	}
+	
 	async login() {
 		const { username, password } = this
 		try {

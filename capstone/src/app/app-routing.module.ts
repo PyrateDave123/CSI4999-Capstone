@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthService] },
+  { path: 'uploader', loadChildren: './uploader/uploader.module#UploaderPageModule' },
 ];
 
 // localhost/tabs

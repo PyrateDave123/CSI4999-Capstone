@@ -6,6 +6,8 @@
 
 <ion-content color="dark" padding>
 
+	<ion-button expand="full" fill="solid" color="danger" shape="round" (click)="logout()">Logout</ion-button>
+
 	<app-loading *ngIf="!posts"></app-loading>
 
 	<div id="profile-info" *ngIf="username">

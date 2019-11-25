@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireFunctions } from '@angular/fire/functions'
-@Component({
-  selector: 'app-feed',
-  templateUrl: './feed.page.html',
-  styleUrls: ['./feed.page.scss'],
-})
-export class FeedPage implements OnInit {
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-  sub
+import { FeedPage } from './feed.page';
 
-  constructor(private aff: AngularFireFunctions) { }
+describe('FeedPage', () => {
+  let component: FeedPage;
+  let fixture: ComponentFixture<FeedPage>;
 
-  ngOnInit() {
-    const getFeed = this.aff.httpsCallable('getfeed')
-    getFeed({}).subscribe(data => {
-      console.log(data)
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ FeedPage ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
-  }
+    .compileComponents();
+  }));
 
-  ngOnDestroy(){
-    this.sub.unscribe()
-  }
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FeedPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-}
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
