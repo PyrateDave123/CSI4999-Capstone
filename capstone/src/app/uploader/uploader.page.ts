@@ -57,6 +57,7 @@ export class UploaderPage implements OnInit {
 			desc,
 			author: this.user.getUsername(),
 			likes: [],
+			here: [],
 			effect: activeEffect
 		})
 		
