@@ -19,6 +19,9 @@
 		<ion-item (click)="toggleHeart()">
 			<ion-icon [name]="heartType"></ion-icon>
 		</ion-item>
-		<ion-button fill="solid" color="primary" shape="round">I was here!</ion-button>
+		<ion-button (click) = "toggleHere()" fill="solid" color="primary" shape="round">I was here!</ion-button>
+		<ion-card-content>
+			<p> {{postData.here}} </p>
+		</ion-card-content>
 	</ion-card>
 </ion-content>
