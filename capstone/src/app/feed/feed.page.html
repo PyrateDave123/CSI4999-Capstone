@@ -8,7 +8,7 @@
 <ion-content color="dark" padding>	
 	<div *ngIf="posts"></div>	
 	<ion-card *ngFor="let post of posts">
-		<ion-img src="https://ucarecdn.com/{{ posts.post }}/-/preview/{{ post.effect }}"></ion-img>
+		<ion-img src="https://ucarecdn.com/{{ post.postID }}/-/preview/{{ post.effect }}"></ion-img>
 		<ion-card-content>
 			<p>{{ post.desc }}</p>
 		</ion-card-content>
