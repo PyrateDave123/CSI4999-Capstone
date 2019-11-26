@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 	styleUrls: ['./uploader.page.scss'],
 })
 export class UploaderPage implements OnInit {
-
+	myDate: string
 	imageURL: string
 	desc: string
 	noFace: boolean = false
@@ -45,6 +45,7 @@ export class UploaderPage implements OnInit {
 	async createPost() {
 		this.busy = true
 
+		const myDate = this.myDate
 		const image = this.imageURL
 		const activeEffect = this.activeEffect
 		const desc = this.desc
@@ -54,15 +55,18 @@ export class UploaderPage implements OnInit {
 		})
 
 		this.afstore.doc(`posts/${image}`).set({
+			myDate,
 			desc,
 			author: this.user.getUsername(),
 			likes: [],
+			here: [],
 			effect: activeEffect
 		})
 		
 		this.busy = false
 		this.imageURL = ""
 		this.desc = ""
+		this.myDate = ""
 
 
 
@@ -94,7 +98,7 @@ export class UploaderPage implements OnInit {
 		const data = new FormData()
 		data.append('file', files[0])
 		data.append('UPLOADCARE_STORE', '1')
-		data.append('UPLOADCARE_PUB_KEY', 'ada5e3cb2da06dee6d82')
+		data.append('UPLOADCARE_PUB_KEY', '283443521fd7e92477a5')
 		
 		this.http.post('https://upload.uploadcare.com/base/', data)
 		.subscribe(event => {

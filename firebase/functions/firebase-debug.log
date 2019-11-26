@@ -1,0 +1,33 @@
+[debug] [2019-11-25T21:59:14.831Z] ----------------------------------------------------------------------
+[debug] [2019-11-25T21:59:14.834Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dmichon\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-25T21:59:14.834Z] CLI Version:   7.8.1
+[debug] [2019-11-25T21:59:14.834Z] Platform:      win32
+[debug] [2019-11-25T21:59:14.834Z] Node Version:  v10.16.3
+[debug] [2019-11-25T21:59:14.835Z] Time:          Mon Nov 25 2019 16:59:14 GMT-0500 (Eastern Standard Time)
+[debug] [2019-11-25T21:59:14.835Z] ----------------------------------------------------------------------
+[debug] [2019-11-25T21:59:14.835Z] 
+[debug] [2019-11-25T21:59:14.851Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-25T21:59:14.852Z] > authorizing via signed-in user
+[debug] [2019-11-25T21:59:14.852Z] [iam] checking project memcomb-8a195 for permissions ["firebase.projects.get"]
+[debug] [2019-11-25T21:59:14.854Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/memcomb-8a195:testIamPermissions  
+
+[debug] [2019-11-25T21:59:14.992Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-25T21:59:14.994Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/memcomb-8a195  
+ 
+[debug] [2019-11-25T21:59:15.134Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\dmichon\CSI4999-Capstone\firebase'...
+[info] 
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Users\dmichon\CSI4999-Capstone\firebase\functions" for Cloud Functions...
+[debug] [2019-11-25T21:59:17.673Z] [worker-~diagnostic~-3e59426f-ad06-4486-8c62-330470d9fa9d]: Assigning socketPath: \\?\pipe\C:\Users\dmichon\CSI4999-Capstone\firebase\functions\7204
+[debug] [2019-11-25T21:59:17.673Z] [worker-~diagnostic~-3e59426f-ad06-4486-8c62-330470d9fa9d]: BUSY
+[debug] [2019-11-25T21:59:18.169Z] [runtime-status] [7204] Functions runtime initialized. {"cwd":"C:\\Users\\dmichon\\CSI4999-Capstone\\firebase\\functions","node_version":"10.16.3"}
+[debug] [2019-11-25T21:59:18.170Z] [runtime-status] [7204] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-11-25T21:59:18.174Z] [runtime-status] [7204] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\dmichon\\CSI4999-Capstone\\firebase\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-25T21:59:18.176Z] [runtime-status] [7204] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\dmichon\\CSI4999-Capstone\\firebase\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-25T21:59:18.177Z] [runtime-status] [7204] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\dmichon\\CSI4999-Capstone\\firebase\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getFeed]: http function initialized (http://localhost:5000/memcomb-8a195/us-central1/getFeed).
+[debug] [2019-11-25T21:59:18.266Z] [worker-~diagnostic~-3e59426f-ad06-4486-8c62-330470d9fa9d]: exited
+[debug] [2019-11-25T21:59:18.266Z] [worker-~diagnostic~-3e59426f-ad06-4486-8c62-330470d9fa9d]: FINISHED
