@@ -18,6 +18,7 @@ export class PostPage implements OnInit {
 	sub
 
 	heartType: string = "heart-empty"
+	wasHere: string = "not-here"
 
 	constructor(
 		private route: ActivatedRoute, 
@@ -33,6 +34,7 @@ export class PostPage implements OnInit {
 			this.post = val
 			this.effect = val.effect
 			this.heartType = val.likes.includes(this.user.getUID()) ? 'heart' : 'heart-empty'
+			this.wasHere = val.here.includes(this.user.getUsername()) ? 'here' : 'not-here'
 		})
 	}
 
@@ -52,4 +54,22 @@ export class PostPage implements OnInit {
 		}
 	}
 
+	toggleHere() {
+		if(this.wasHere == 'not-here') {
+			this.postReference.update({
+				here: firestore.FieldValue.arrayUnion(this.user.getUsername())
+			})
+		} else {
+			this.postReference.update({
+				here: firestore.FieldValue.arrayRemove(this.user.getUsername())
+			})
+		}
+	}
+
+	whowasHere() {
+
+
+
+
+	}
 }

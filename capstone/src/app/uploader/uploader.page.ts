@@ -59,6 +59,7 @@ export class UploaderPage implements OnInit {
 			desc,
 			author: this.user.getUsername(),
 			likes: [],
+			here: [],
 			effect: activeEffect
 		})
 		
@@ -97,7 +98,7 @@ export class UploaderPage implements OnInit {
 		const data = new FormData()
 		data.append('file', files[0])
 		data.append('UPLOADCARE_STORE', '1')
-		data.append('UPLOADCARE_PUB_KEY', 'ada5e3cb2da06dee6d82')
+		data.append('UPLOADCARE_PUB_KEY', '283443521fd7e92477a5')
 		
 		this.http.post('https://upload.uploadcare.com/base/', data)
 		.subscribe(event => {
