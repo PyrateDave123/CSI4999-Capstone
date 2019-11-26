@@ -14,6 +14,7 @@
 	<ion-card *ngIf="post as postData">
 		<ion-img src="https://ucarecdn.com/{{ postID }}/-/preview/{{ effect }}"></ion-img>
 		<ion-card-content>
+			<p>{{ postData.myDate }}</p>
 			<p>{{ postData.desc }}</p>
 		</ion-card-content>
 		<ion-item (click)="toggleHeart()">

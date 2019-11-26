@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions'
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.page.html',
