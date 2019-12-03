@@ -30,11 +30,12 @@ export class FeedPage implements OnInit {
 				postsData.push({
 					"postID": post['id'],
 					"url": post['url'],
-					"imageType": post['imageType'] 
+					"imageType": post['imageType'], 
+					"myDate": post['myDate'],
+					"desc": post['desc']
 			})
 			});
 			
-
 			this.posts = postsData
 		})
 	}

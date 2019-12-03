@@ -18,17 +18,15 @@
 				</video>
 		</div>
 		<ion-card-content>
-				<p>{{ postData.myDate }}</p>
+			<p>{{ postData.myDate }}</p>
 			<p>{{ postData.desc }}</p>
 		</ion-card-content>
 		<ion-item (click)="toggleHeart()">
 			<ion-icon [name]="heartType"></ion-icon>
 		</ion-item>
 
-		<ion-item>
-			<ion-textarea placeholder="Please post your comments" [(ngModel)]="commentBox"></ion-textarea>
-			<ion-button (click)="submitComment()" fill="solid" color="primary" shape="round">Submit Comment</ion-button>
-		</ion-item>
+		<ion-textarea placeholder="Please post your comments" [(ngModel)]="commentBox"></ion-textarea>
+		<ion-button (click)="submitComment()" fill="solid" color="primary" shape="round">Submit Comment</ion-button>
 
 		<div>
 			<div *ngFor="let comment of comments">
