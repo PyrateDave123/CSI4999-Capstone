@@ -61,7 +61,7 @@ export class RegisterPage implements OnInit {
 			})
 
 			this.presentAlert('Success', 'You are registered!')
-			this.router.navigate(['/tabs'])
+			this.router.navigate(['/login'])
 
 		} catch(error) {
 			console.dir(error)
