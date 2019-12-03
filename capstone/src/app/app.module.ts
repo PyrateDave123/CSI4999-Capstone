@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
 import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/functions';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,8 @@ import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/
 	],
   providers: [
     StatusBar,
-    SplashScreen,
+	SplashScreen,
+	AngularFireStorage,
 	{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 	UserService,
 	AuthService,

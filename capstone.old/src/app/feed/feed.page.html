@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+			<ion-title color="light">Events</ion-title>
+			
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" padding>	
+	<div *ngIf="posts"></div>	
+	<ion-card *ngFor="let post of posts">
+		<ion-img src="https://ucarecdn.com/{{ post.postID }}/-/preview/{{ post.effect }}"></ion-img>
+		<ion-card-content>
+			<p>{{ post.desc }}</p>
+			<p>{{ post.myDate }}</p>
+		</ion-card-content>
+	</ion-card>
+	
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/tabs/uploader">
+			<ion-fab-button color="danger">
+				<ion-icon name="add"></ion-icon>
+			</ion-fab-button>
+		</ion-fab>
+</ion-content>

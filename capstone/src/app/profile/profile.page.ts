@@ -22,10 +22,28 @@ export class ProfilePage implements OnInit {
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router, public fAuth: AngularFireAuth) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.posts = event.posts
+			let posts = event.posts || [];
 			this.username = event.username
 			this.profilePic = event.profilePic
 			this.friendlist = event.friendlist
+			
+			let postsData = [];
+
+			posts.forEach(post => {
+				let postReference = this.afs.doc(`posts/${post}`)
+				
+				postReference.valueChanges().subscribe(val => {
+				postsData.push({
+					"postID": post,
+					"url": val['url'],
+					"imageType": val['imageType'] 
+				})
+			})
+			});
+			
+
+			this.posts = postsData
+
 		})
 	}
 
@@ -39,7 +57,6 @@ export class ProfilePage implements OnInit {
 	}
 
 	goTo(postID: string) {
-
 		this.router.navigate(['/tabs/post/' + postID.split('/')[0]])
 	}
 
