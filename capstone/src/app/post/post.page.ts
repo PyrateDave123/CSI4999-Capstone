@@ -64,7 +64,7 @@ export class PostPage implements OnInit {
 		if(this.commentBox.trim() != ''){
 			this.comments.push({uid: new Date().getTime(),"comment": comment, userId: this.user.getUID(), userName: this.user.getUsername()});
 
-			this.afs.doc(`posts/${this.postID}`).set({
+			this.postReference.update({
 				comments: this.comments
 			}).then((res) => {
 				this.commentBox = '';
