@@ -57,7 +57,9 @@ export class RegisterPage implements OnInit {
 
 			this.user.setUser({
 				username,
-				uid: res.user.uid
+				uid: res.user.uid,
+				tags: ""
+		
 			})
 
 			this.presentAlert('Success', 'You are registered!')

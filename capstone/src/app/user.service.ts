@@ -5,7 +5,8 @@ import { auth } from 'firebase/app'
 
 interface user {
 	username: string,
-	uid: string
+	uid: string,
+	tags: string
 }
 
 @Injectable()
@@ -31,6 +32,9 @@ export class UserService {
 	updatePassword(newpassword: string) {
 		return this.afAuth.auth.currentUser.updatePassword(newpassword)
 	}
+	updateTagg(tags: string) {
+		return this.afAuth.auth.currentUser.updateTagg(tags)
+	}
 
 	updateEmail(newemail: string) {
 		return this.afAuth.auth.currentUser.updateEmail(newemail + '@codedamn.com')
@@ -44,7 +48,8 @@ export class UserService {
 		if(user) {
 			this.setUser({
 				username: user.email.split('@')[0],
-				uid: user.uid
+				uid: user.uid,
+				tags: user.tags
 			})
 
 			return true
@@ -55,4 +60,8 @@ export class UserService {
 	getUID(): string {
 		return this.user.uid
 	}
+	getTag(): string {
+		return this.user.tags
+	}
+	
 }

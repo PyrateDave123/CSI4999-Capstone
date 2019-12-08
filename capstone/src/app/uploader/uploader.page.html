@@ -1,5 +1,8 @@
 <ion-header>
 	<ion-toolbar color="primary">
+			<ion-buttons slot="start">
+					<ion-back-button defaultHref="/tabs/feed"></ion-back-button>
+				</ion-buttons>
 			<ion-title color="light">Create an Event</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -25,6 +28,7 @@
 							<ion-label position="floating">Date</ion-label>
 							<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
 							<ion-textarea placeholder="Enter the Name of Your Event" [(ngModel)]="desc"></ion-textarea>
+							<ion-textarea placeholder="Enter the Tag of Your Event" [(ngModel)]="tag"></ion-textarea>
 							<ion-button shape="round" color="primary" (click)="createPost()">POST</ion-button>
 						</ion-card-content>
 					</ion-col>

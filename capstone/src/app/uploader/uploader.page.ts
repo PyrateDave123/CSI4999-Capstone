@@ -23,6 +23,7 @@ export class UploaderPage implements OnInit {
 	noFace: boolean = false
 	fullPath = '';
 	myDate: string
+	tag: string
 	
 	scaleCrop: string = '-/scale_crop/200x200'
 	
@@ -60,6 +61,7 @@ export class UploaderPage implements OnInit {
 		const time = new Date().getTime();
 		//const activeEffect = this.activeEffect
 		const desc = this.desc
+		const tag = this.tag
 
 		this.afstore.doc(`users/${this.user.getUID()}`).update({
 			posts: firestore.FieldValue.arrayUnion(`${time}`)
@@ -68,6 +70,7 @@ export class UploaderPage implements OnInit {
 		this.afstore.doc(`posts/${time}`).set({
 			myDate,
 			desc,
+			tag,
 			author: this.user.getUsername(),
 			likes: [],
 			url: image,
@@ -80,6 +83,7 @@ export class UploaderPage implements OnInit {
 		this.imageURL = ""
 		this.desc = ""
 		this.myDate = ""
+		this.tag = ""
 
 		const alert = await this.alertController.create({
 			header: 'Done',

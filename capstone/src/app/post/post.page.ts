@@ -41,6 +41,7 @@ export class PostPage implements OnInit {
 			this.imageType = val['imageType']
 			this.comments = val['comments'] || [];
 			this.heartType = val.likes.includes(this.user.getUID()) ? 'heart' : 'heart-empty'
+			this.wasHere = val.here.includes(this.user.getUsername()) ? 'here' : 'not-here'
 		})
 	}
 
@@ -51,7 +52,7 @@ export class PostPage implements OnInit {
 			return comment.uid != uid;
 		})
 
-		this.afs.doc(`posts/${this.postID}`).set({
+		this.postReference.update({
 			comments: this.comments
 		}).then((res) => {
 			this.comments = comments;
