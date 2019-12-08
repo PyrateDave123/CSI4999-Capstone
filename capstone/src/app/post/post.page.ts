@@ -38,6 +38,37 @@ export class PostPage implements OnInit {
 		})
 	}
 
+<<<<<<< Updated upstream
+=======
+	deleteComment(uid){
+		let comments = this.comments;
+
+		comments = comments.filter(comment => {
+			return comment.uid != uid;
+		})
+
+		this.postReference.update({
+			comments: this.comments
+		}).then((res) => {
+			this.comments = comments;
+		})
+	}
+
+	submitComment(){
+		let comment = this.commentBox;
+
+		if(this.commentBox.trim() != ''){
+			this.comments.push({uid: new Date().getTime(),"comment": comment, userId: this.user.getUID(), userName: this.user.getUsername()});
+
+			this.postReference.update({
+				comments: this.comments
+			}).then((res) => {
+				this.commentBox = '';
+			})
+		}
+	}
+
+>>>>>>> Stashed changes
 	ngOnDestroy() {
 		this.sub.unsubscribe()
 	}

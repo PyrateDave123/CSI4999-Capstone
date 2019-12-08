@@ -11,7 +11,26 @@
 	margin-right: 1px;
 }
 
-.main-image, .user-image {
+.user-image {
 	width: 200px;
 	height: 200px;
+}
+
+.img-wrapper {
+    min-height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cardInfo {
+	font-size: 26px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.background{
+	--background: url(../../assets/img/connectwork.png) repeat 100% 100%;
+	
 }
