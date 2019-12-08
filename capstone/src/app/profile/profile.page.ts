@@ -18,6 +18,7 @@ export class ProfilePage implements OnInit {
 	username: string
 	profilePic: string
 	friendlist: string
+	
 
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router, public fAuth: AngularFireAuth) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
@@ -36,7 +37,8 @@ export class ProfilePage implements OnInit {
 				postsData.push({
 					"postID": post,
 					"url": val['url'],
-					"imageType": val['imageType'] 
+					"imageType": val['imageType']
+				
 				})
 			})
 			});
