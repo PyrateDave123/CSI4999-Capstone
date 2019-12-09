@@ -101,4 +101,8 @@ export class PostPage implements OnInit {
 		}
 	}
 
+	whowasHere() {
+
+	}
+
 }

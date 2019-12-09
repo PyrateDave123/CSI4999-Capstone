@@ -1,42 +1,39 @@
 <ion-header>
 	<ion-toolbar color="primary">
-		<ion-title color="light">Events</ion-title>
+			  <ion-title color="light">Events</ion-title>
 	</ion-toolbar>
   </ion-header>
   
-  <ion-content color="dark" padding>
+  <ion-content class="background" padding>
+	  <ion-card color= "dark" padding class="cardInfo" style="font-size:3vw;">
 		<ion-card-content>			
 				<ion-textarea placeholder="Enter the tag you want to search" [(ngModel)]="tags"></ion-textarea>
 				<ion-button shape="round" color="primary" (click)="updateTag()">SEARCH</ion-button>
 			</ion-card-content>
+		</ion-card>
+	  	  <div id="images" *ngIf="posts">
 		
-	  <div id="images" *ngIf="posts">
-		  <div class="image" *ngFor="let post of posts">
-			<p>{{ post.desc }}</p>
-			<p>{{ post.myDate }}</p>
-			<p>{{ post.tag }}</p>
+			<div class="image" *ngFor="let post of posts">
+			  <ion-card color= "dark" padding class="cardInfo" style="font-size:2vw;">
+			  
+					<p>{{ post.desc }}
+						<br>
+						Date: {{ post.myDate }}
+					<br>
+						Tag: {{ post.tag }}</p>
+						  
+				<img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
+				 <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
+						  <video id="images" controls>
+								<source src="{{post.url}}">
+								Your browser does not support the video tag.
+						</video>  
+				</div>
+			  
+			  </ion-card>
+			</div>
 		  
-			 
-			  <img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
-			  
-  
-			  <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
-			  
-					  <video width="320" height="240" controls>
-							  <source src="{{post.url}}">
-							  Your browser does not support the video tag.
-					  </video>
+		</div>
 
-			  </div>
-  
-		  </div>
-	  </div>
-
-  
-	  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/tabs/uploader">
-		  <ion-fab-button color="danger">
-			  <ion-icon name="add"></ion-icon>
-		  </ion-fab-button>
-	  </ion-fab>
   </ion-content>
   

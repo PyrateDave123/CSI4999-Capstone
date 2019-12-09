@@ -3,7 +3,8 @@
 	flex-wrap: wrap;
 	margin: 0 auto;
 	max-width: 100%;
-	width: 606px;
+	width:480px;
+	height:360px;
 }
 
 .image {
@@ -14,4 +15,23 @@
 .main-image, .user-image {
 	width: 200px;
 	height: 200px;
+}
+
+.img-wrapper {
+    min-height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cardInfo {
+	font-size: 26px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.background{
+	--background: url(../../assets/img/connectwork.png) repeat 100% 100%;
+	
 }
