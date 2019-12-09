@@ -9,26 +9,34 @@
 				<ion-textarea placeholder="Enter the tag you want to search" [(ngModel)]="tags"></ion-textarea>
 				<ion-button shape="round" color="primary" (click)="updateTag()">SEARCH</ion-button>
 			</ion-card-content>
-			  <ion-title color="light" class="headerText" >Events</ion-title>
-	</ion-toolbar>
-  </ion-header>
-	  <div id="images" *ngIf="posts">
 		
+	  <div id="images" *ngIf="posts">
 		  <div class="image" *ngFor="let post of posts">
-			<ion-card color= "dark" padding class="cardInfo" style="font-size:3vw;">
-			
-				<p>{{ post.desc }}
-					<br>
-				{{ post.myDate }}</p>
-			
+			<p>{{ post.desc }}</p>
+			<p>{{ post.myDate }}</p>
+			<p>{{ post.tag }}</p>
+		  
+			 
 			  <img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
-			   <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
-			  		  <video id="images" controls>
+			  
+  
+			  <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
+			  
+					  <video width="320" height="240" controls>
 							  <source src="{{post.url}}">
 							  Your browser does not support the video tag.
-					  </video>  
-			  </div>	
-			</ion-card>
+					  </video>
+
+			  </div>
+  
 		  </div>
-	  </div>	  
+	  </div>
+
+  
+	  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/tabs/uploader">
+		  <ion-fab-button color="danger">
+			  <ion-icon name="add"></ion-icon>
+		  </ion-fab-button>
+	  </ion-fab>
   </ion-content>
+  
