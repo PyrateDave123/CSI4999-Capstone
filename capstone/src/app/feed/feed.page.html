@@ -1,5 +1,6 @@
 <ion-header>
 	<ion-toolbar color="primary">
+<<<<<<< HEAD
 			  <ion-title color="light">Events</ion-title>
 	</ion-toolbar>
   </ion-header>
@@ -19,10 +20,27 @@
 			 
 			  <img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
 			  
+=======
+			  <ion-title color="light" class="headerText" >Events</ion-title>
+	</ion-toolbar>
+  </ion-header>
+  
+  
+ 
+  <ion-content class="background" padding>
+	  
+	  <div id="images" *ngIf="posts">
+		
+		  <div class="image" *ngFor="let post of posts">
+<<<<<<< Updated upstream
+  
+			  <img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
+>>>>>>> jacob
   
 			  <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
 			  
 					  <video width="320" height="240" controls>
+<<<<<<< HEAD
 							  <source src="{{post.url}}">
 							  Your browser does not support the video tag.
 					  </video>
@@ -40,3 +58,30 @@
 	  </ion-fab>
   </ion-content>
   
+=======
+=======
+			<ion-card color= "dark" padding class="cardInfo" style="font-size:3vw;">
+			
+				<p>{{ post.desc }}
+					<br>
+				{{ post.myDate }}</p>
+			
+			  <img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
+			   <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
+			  		  <video id="images" controls>
+>>>>>>> Stashed changes
+							  <source src="{{post.url}}">
+							  Your browser does not support the video tag.
+					  </video>  
+			  </div>
+<<<<<<< Updated upstream
+=======
+			
+			</ion-card>
+>>>>>>> Stashed changes
+		  </div>
+		
+	  </div>	  
+  </ion-content>
+  
+>>>>>>> jacob
