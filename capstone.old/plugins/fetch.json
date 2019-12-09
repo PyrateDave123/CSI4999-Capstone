@@ -1,0 +1,10 @@
+{
+  "cordova-plugin-streaming-media": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-streaming-media"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
