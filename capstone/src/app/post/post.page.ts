@@ -16,7 +16,8 @@ export class PostPage implements OnInit {
 	post
 	postReference: AngularFirestoreDocument
 	sub
-
+	comments = []
+	commentBox: string = ''
 	heartType: string = "heart-empty"
 	wasHere: string = "not-here"
 
