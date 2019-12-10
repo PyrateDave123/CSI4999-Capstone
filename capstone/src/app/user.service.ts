@@ -26,14 +26,11 @@ export class UserService {
 	}
 
 	reAuth(username: string, password: string) {
-		return this.afAuth.auth.currentUser.reauthenticateWithCredential(auth.EmailAuthProvider.credential(username + '@codedamn.com', password))
+		return this.afAuth.auth.currentUser.reauthenticateWithCredential(auth.EmailAuthProvider.credential(username + '@gmail.com', password))
 	}
 
 	updatePassword(newpassword: string) {
 		return this.afAuth.auth.currentUser.updatePassword(newpassword)
-	}
-	updateTagg(tags: string) {
-		return this.afAuth.auth.currentUser.updateTagg(tags)
 	}
 
 	updateEmail(newemail: string) {
