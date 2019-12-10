@@ -1,8 +1,5 @@
 <ion-header>
 	<ion-toolbar color="primary">
-			<ion-buttons slot="start">
-				<ion-back-button defaultHref="/tabs/feed"></ion-back-button>
-			</ion-buttons>
 			<ion-title color="light">Create an Event</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -23,22 +20,18 @@
 			<ion-grid>
 				<ion-row>
 					<ion-col size="12">
-						<ion-img src="https://ucarecdn.com/{{ imageURL }}/-/preview/{{ activeEffect }}"></ion-img>
-						<ion-item>
-							<ion-label position="floating">Date</ion-label>
-  							<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-						</ion-item>
-						
+						<ion-img *ngIf="imageType" src="{{ imageURL }}"></ion-img>
 						<ion-card-content>
-							
-							<ion-textarea placeholder="Description" [(ngModel)]="desc" color="light"></ion-textarea>
+							<ion-label position="floating">Date</ion-label>
+							<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+							<ion-textarea placeholder="Enter the Name of Your Event" [(ngModel)]="desc"></ion-textarea>
 							<ion-button shape="round" color="primary" (click)="createPost()">POST</ion-button>
 						</ion-card-content>
 					</ion-col>
 				</ion-row>
 
 				<ion-row>
-					<ion-col [class.active]="activeEffect==effects.effect1" (click)="setSelected('effect1')">
+				<!--	<ion-col [class.active]="activeEffect==effects.effect1" (click)="setSelected('effect1')">
 						<ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/"></ion-img>
 					</ion-col>
 					<ion-col [class.active]="activeEffect==effects.effect2" (click)="setSelected('effect2')">
@@ -53,7 +46,9 @@
 					<ion-col [class.active]="activeEffect==effects.effect5" (click)="setSelected('effect5')">
 						<ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/{{ effects.effect5 }}"></ion-img>
 					</ion-col>
+				-->
 				</ion-row>
+
 			</ion-grid>
 
 		</div>

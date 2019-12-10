@@ -1,52 +1,45 @@
 <ion-header>
-  <ion-toolbar color="primary">
-		<ion-title color="light" style= "font-size:28px">My Vault</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="background" padding>
-
-	<ion-button expand="full" fill="solid" color="danger" shape="round" (click)="logout()">Logout</ion-button>
-
-	<app-loading *ngIf="!posts"></app-loading>
-
-	<div id="profile-info" *ngIf="username">
-		<ion-grid>
-			<ion-row>
-				<ion-col size="2" class="user-image">
-					<ion-img src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/200x200/center/"></ion-img>
-				</ion-col>
-				<ion-col size="5">
-					<p style="font-size:4vw;" style="color: white">{{ username }}</p>
-					<ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edit Profile</ion-button>
-				</ion-col>
-			</ion-row>
-		</ion-grid>
-	</div>
-
-	<div id="images" *ngIf="posts">
-		<ion-grid>
-			<ion-row>
-					<div class="image" *ngFor="let post of posts">
-						<ion-col size ="4"> 
-						<img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" />
-						</ion-col>
-							<div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
-			
-								<video width="320" height="240" controls>
-										<source src="{{post.url}}">
-									Your browser does not support the video tag.
-								</video>
-							</div>
-	
-					</div>
-			</ion-row>
-	    </ion-grid>
-	</div>
-	
-	<ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/tabs/uploader">
+	<ion-toolbar color="primary">
+		  <ion-title color="light">Profile</ion-title>
+	</ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="dark" padding>
+  
+	  <ion-button expand="full" fill="solid" color="danger" shape="round" (click)="logout()">Logout</ion-button>
+  
+	  <app-loading *ngIf="!posts"></app-loading>
+  
+	  <div id="profile-info" *ngIf="username">
+		  <ion-grid>
+			  <ion-row>
+				  <ion-col size="4" class="user-image">
+					  <ion-img src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/200x200/center/"></ion-img>
+				  </ion-col>
+				  <ion-col size="8">
+					  <p>{{ username }}</p>
+					  <ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edit Profile</ion-button>
+				  </ion-col>
+			  </ion-row>
+		  </ion-grid>
+	  </div>
+  
+	  <div id="images" *ngIf="posts">
+		  <div class="image" *ngFor="let post of posts">
+				  <img *ngIf="post.imageType" (click)="goTo(post.postID)" class="main-image" src="{{post.url}}" style='height: 200px; width: auto' />
+				  <div *ngIf="!post.imageType" (click)="goTo(post.postID)"> 
+			  
+						  <video width="320" height="240" controls>
+								  <source src="{{post.url}}">
+								  Your browser does not support the video tag.
+						  </video>
+				  </div>
+	  
+		  </div>
+	  </div>
+	  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/tabs/uploader">
 		<ion-fab-button color="danger">
 			<ion-icon name="add"></ion-icon>
 		</ion-fab-button>
-	</ion-fab>
-</ion-content>
+	  </ion-fab>
+  </ion-content>

@@ -1,10 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http } from '@angular/http'
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators';
+import 'firebase/storage';
 
 @Component({
 	selector: 'app-uploader',
@@ -12,10 +17,12 @@ import { Router } from '@angular/router';
 	styleUrls: ['./uploader.page.scss'],
 })
 export class UploaderPage implements OnInit {
-	myDate: string
+
 	imageURL: string
 	desc: string
 	noFace: boolean = false
+	fullPath = '';
+	myDate: string
 	
 	scaleCrop: string = '-/scale_crop/200x200'
 	
@@ -29,6 +36,7 @@ export class UploaderPage implements OnInit {
 	
 	activeEffect: string = this.effects.effect1
 	busy: boolean = false
+	imageType:boolean = true
 
 	@ViewChild('fileButton') fileButton
 
@@ -37,38 +45,41 @@ export class UploaderPage implements OnInit {
 		public afstore: AngularFirestore,
 		public user: UserService,
 		private alertController: AlertController,
+		private storage: AngularFireStorage, private db: AngularFirestore,
+
 		private router: Router) { }
 
 	ngOnInit() {
+		
 	}
 
 	async createPost() {
 		this.busy = true
-
 		const myDate = this.myDate
 		const image = this.imageURL
-		const activeEffect = this.activeEffect
+		const time = new Date().getTime();
+		//const activeEffect = this.activeEffect
 		const desc = this.desc
 
 		this.afstore.doc(`users/${this.user.getUID()}`).update({
-			posts: firestore.FieldValue.arrayUnion(`${image}/${activeEffect}`)
+			posts: firestore.FieldValue.arrayUnion(`${time}`)
 		})
 
-		this.afstore.doc(`posts/${image}`).set({
+		this.afstore.doc(`posts/${time}`).set({
 			myDate,
 			desc,
 			author: this.user.getUsername(),
 			likes: [],
-			here: [],
-			effect: activeEffect
+			url: image,
+			id: time,
+			fullPath: this.fullPath,
+			imageType: this.imageType
 		})
 		
 		this.busy = false
 		this.imageURL = ""
 		this.desc = ""
 		this.myDate = ""
-
-
 
 		const alert = await this.alertController.create({
 			header: 'Done',
@@ -89,27 +100,56 @@ export class UploaderPage implements OnInit {
 		this.fileButton.nativeElement.click()
 	}
 
+	pushUpload(file) {
+		const path = `/posts/${Date.now()}_${file.name}`;
+
+		// Reference to storage bucket
+		let isImage = file.type.split('/')[0] == 'image';
+
+		if(isImage){
+
+			// For images, uploading to uploadcare service
+			const data = new FormData();
+
+			data.append('file', file)
+			data.append('UPLOADCARE_STORE', '1')
+			data.append('UPLOADCARE_PUB_KEY', 'ada5e3cb2da06dee6d82')
+			
+			this.http.post('https://upload.uploadcare.com/base/', data)
+			.subscribe(event => {
+				
+				this.imageURL = event.json().file
+				this.imageURL = `https://ucarecdn.com/${this.imageURL}/-/preview/`
+				this.busy = false
+				this.http.get(`${this.imageURL}/detect_faces/`)
+				.subscribe(event => {
+					this.noFace = event.json().faces == 0
+				})
+			})
+		}else{
+			// For other than image files, uploading to firebase storage
+			const fileRef = this.storage.ref(path);
+			let _this = this;
+
+			let task:any = this.storage.upload(path, file).snapshotChanges().pipe(
+				finalize(() => {
+					fileRef.getDownloadURL().subscribe((url) => {
+						_this.imageURL = url;
+						_this.fullPath = url;
+						_this.imageType = false;
+						_this.busy = false;
+					})
+				})
+			).subscribe();
+		}
+	}
+
 	fileChanged(event) {
 		
 		this.busy = true
-
 		const files = event.target.files
-		
-		const data = new FormData()
-		data.append('file', files[0])
-		data.append('UPLOADCARE_STORE', '1')
-		data.append('UPLOADCARE_PUB_KEY', '283443521fd7e92477a5')
-		
-		this.http.post('https://upload.uploadcare.com/base/', data)
-		.subscribe(event => {
-			console.log(event)
-			this.imageURL = event.json().file
-			this.busy = false
-			this.http.get(`https://ucarecdn.com/${this.imageURL}/detect_faces/`)
-			.subscribe(event => {
-				this.noFace = event.json().faces == 0
-			})
-		})
-	}
 
+		let file = files[0];
+		this.pushUpload(file)
+	}
 }
